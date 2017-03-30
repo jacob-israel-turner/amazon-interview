@@ -1,3 +1,4 @@
+/*
 q) You own a service that accepts orders for various products. How will you maintain an LRU cache of k products and its product information. 
 
     Each request has a {ProductId}
@@ -13,9 +14,10 @@ q) You own a service that accepts orders for various products. How will you main
     {E -> ProductInfo(E)}
     {D -> ProductInfo(D)}
     {C -> ProductInfo(C)}
+
+*/
     
-    
-    
+    // First attempt (O(n) runtime)
     let orderCache = {}
     let orderRequestHistory = []
     const orderRequestHistoryLimit = 4
@@ -38,6 +40,9 @@ q) You own a service that accepts orders for various products. How will you main
         }
         return productInfo
     }
+
+    
+    // Second attempt (O(1) runtime)
     
     let orderCache = {}
     let firstItem = ''
@@ -71,6 +76,8 @@ q) You own a service that accepts orders for various products. How will you main
         
         return productInfo
     }
+
+    /*
     
     orderCache = {
         a: {
@@ -80,6 +87,7 @@ q) You own a service that accepts orders for various products. How will you main
         }
     }
     
+
     orderCache {productInfo(A)}
     orderRequestHistory [A]
     
@@ -89,3 +97,4 @@ q) You own a service that accepts orders for various products. How will you main
     orderCache {A: productInfo(A), B: productInfo(B)}
     orderRequestHistory [A, B]
     
+    */
